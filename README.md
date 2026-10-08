@@ -1,88 +1,59 @@
-# Tri-wise
+# tri-wise
 
 <p align="center">
-  <img src="assets/tri-wise-logo.png" alt="Tri-wise logo" width="360">
+  <img src="assets/tri-wise-logo.png" alt="tri-wise logo" width="360">
 </p>
 
-**Predictive analytics and what-if exploration for endurance performance.**
+**Connecting training evidence to race performance.**
 
-Tri-wise explores how training and race data, machine learning, and uncertainty-aware
-decision models can support better-informed triathlon training and race strategy.
+tri-wise is an applied research project at the intersection of endurance sport,
+probabilistic modeling, and decision support. It explores how longitudinal
+training records and race results can help an athlete understand performance,
+identify meaningful opportunities, and make better-informed training and pacing
+choices.
 
-The project investigates four central questions:
+Triathlon provides a demanding setting: three disciplines, interacting fatigue,
+variable courses and conditions, and imperfect measurements. The central question
+is practical: **which changes in preparation are likely to matter on race day,
+and how strong is the evidence?**
 
-- **What is changing?** Explore longitudinal patterns in training load,
-  performance, and physiological response across swimming, cycling, and running.
-- **How does training connect to racing?** Put preparation, race execution and
-  age-group benchmarks in the context of a specific event and distance.
-- **What might happen next?** Investigate ML-based predictions of training
-  response and performance.
-- **What if I made a different choice?** Explore alternative pacing, training,
-  and recovery scenarios under explicit assumptions.
+## Performance questions
 
-The technical direction combines Python-based analytics, interactive
-visualizations, predictive modeling, and exploration of modern decision-modeling
-approaches such as Laya.
+- **Adaptation over time:** distinguish useful changes in performance and
+  physiological response from day-to-day variation.
+- **Preparation and execution:** connect training patterns to what happens during
+  competition, including how the bike effort relates to the run that follows.
+- **Competitive context:** understand the gap to age-group leaders within a
+  specific race, while respecting differences in distance, course and conditions.
+- **Decisions under uncertainty:** explore alternative training and pacing choices
+  with explicit assumptions about what the available evidence can support.
 
-**The underlying methodology and implementation are intentionally kept private.**
-This repository provides a visual overview of the project's focus without
-disclosing its internal methods or development status.
+## Technical perspective
 
-## From training to race day
+The research challenge extends beyond predicting a finish time. It involves
+learning from repeated observations of an individual athlete while fitness,
+equipment and race context change. Personal physiological references and the
+provenance of recorded measurements matter to how those observations are read.
 
-A training improvement becomes more useful when we can ask where it shows up on
-race day. Tri-wise explores that connection across swim, bike, transitions and run:
+The project emphasizes reproducible analysis, transparent baselines, and a clear
+separation between observed associations, predictive performance and causal
+claims. A faster training session does not automatically imply improved race
+readiness; a slower run after a hard ride does not establish its cause.
 
-- **Race context:** distinguish sprint, Olympic and middle-distance events, and
-  account for differences between courses and conditions.
-- **Age-group perspective:** compare with actual competitors at the same event,
-  keeping an overall performance goal connected to individual disciplines.
-- **Bike-to-run execution:** explore how effort during the bike relates to the
-  run that follows, alongside the athlete's preparation.
-- **Personal context:** interpret observations with dated physiological references
-  and awareness of the equipment used to record them.
+The modeling direction remains open. Current discussion centers on
+**probabilistic and Bayesian approaches using PyMC**, alongside
+**causal-inference approaches using DoWhy**. These are candidates for exploration,
+not an adopted stack or a claim of validated predictive or causal capabilities.
 
-The aim is to turn an observation into a focused question for the next training
-block. A slower run after a hard ride is a starting point for investigation;
-it does not, by itself, explain what caused the result. Comparisons need clear
-sources, comparable timing definitions and visible uncertainty.
+## Research ambition
 
-## A visual perspective
-
-All figures below use invented values. They illustrate analytical questions,
-not measured athlete outcomes, model forecasts, or validated training
-recommendations. They are not screenshots of the private system.
-
-### Patterns over time
-
-Relate changes in performance to recovery rather than reading either in isolation.
-This swimming illustration is one example within a broader swim, bike, and run focus.
-
-![Synthetic illustration of pace and recovery across six training weeks](assets/training-patterns.png)
-
-*Synthetic illustration—not athlete results.*
-
-### From the bigger picture to a session
-
-Explore how effort and physiological response vary during a workout, placing
-aggregate observations back in their session context.
-
-![Synthetic heart-rate profile across four illustrative effort and recovery periods](assets/session-profile.png)
-
-*Synthetic illustration—not recorded sensor data.*
-
-### Exploring alternatives
-
-Compare possible trajectories under different choices, making uncertainty
-visible rather than presenting a single outcome as inevitable.
-
-![Three hypothetical scenarios with illustrative response trajectories and uncertainty bands](assets/scenario-exploration.png)
-
-*Synthetic concept illustration—not model forecasts. The bands are illustrative,
-not calibrated confidence intervals.*
+The aim is to connect three levels of evidence: what changed in training, how the
+athlete executed the race, and what deserves testing in the next training block.
+Success means a more defensible performance decision, with uncertainty visible
+and an observation that can be checked again.
 
 ---
 
-The showcase communicates the questions and perspective of the project.
-It does not disclose algorithms, feature definitions, selection rules,
-model configurations, or optimization procedures.
+**The underlying methodology and implementation are intentionally kept private.**
+This repository presents the project's research questions and direction. It does
+not publish athlete data, internal methods, or implementation-status claims.
