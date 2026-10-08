@@ -40,10 +40,27 @@ separation between observed associations, predictive performance and causal
 claims. A faster training session does not automatically imply improved race
 readiness; a slower run after a hard ride does not establish its cause.
 
-The modeling direction remains open. Current discussion centers on
-**probabilistic and Bayesian approaches using PyMC**, alongside
-**causal-inference approaches using DoWhy**. These are candidates for exploration,
-not an adopted stack or a claim of validated predictive or causal capabilities.
+The modeling direction remains open, with three complementary roles under
+consideration:
+
+- **PyMC — performance change and prediction:** estimate how performance changes
+  under comparable conditions and what to expect in a future session, with
+  uncertainty made explicit. Has expected performance improved beyond ordinary
+  session-to-session variation?
+- **DoWhy — intervention questions:** investigate whether a specific change in
+  preparation or pacing could improve an outcome, where the evidence and causal
+  assumptions support estimation. Would a more conservative early bike effort
+  improve total bike-plus-run time?
+- **LLMs — evidence access and explanation:** provide a grounded interface for
+  finding relevant sessions, calling analysis tools, and explaining results with
+  source references. Which comparable sessions support a proposed explanation,
+  and what context is missing?
+
+These are proposed research directions, not an adopted stack or a claim of
+validated predictive or causal capabilities. Numerical results would come from
+analysis tools and models; generated explanations would remain tied to their
+supporting evidence. Added complexity must earn its place against transparent
+baselines.
 
 ## Research ambition
 
