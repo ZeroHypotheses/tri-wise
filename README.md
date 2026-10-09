@@ -40,24 +40,36 @@ separation between observed associations, predictive performance and causal
 claims. A faster training session does not automatically imply improved race
 readiness; a slower run after a hard ride does not establish its cause.
 
-The modeling direction remains open, with three complementary roles under
-consideration:
+The technical direction connects three complementary roles:
 
-- **PyMC — performance change and prediction:** estimate how performance changes
-  under comparable conditions and what to expect in a future session, with
-  uncertainty made explicit. Has expected performance improved beyond ordinary
-  session-to-session variation?
+- **PyMC — performance change and prediction:** estimate race finish-time
+  distributions and the probability of meeting a target, with uncertainty and
+  assumptions made explicit. How much confidence should an athlete place in a
+  forecast given the available training and race evidence?
 - **DoWhy — intervention questions:** investigate whether a specific change in
   preparation or pacing could improve an outcome, where the evidence and causal
   assumptions support estimation. Would a more conservative early bike effort
   improve total bike-plus-run time?
-- **LLMs — evidence access and explanation:** provide a grounded interface for
-  finding relevant sessions, calling analysis tools, and explaining results with
-  source references. Which comparable sessions support a proposed explanation,
-  and what context is missing?
+- **PydanticAI — evidence investigation and explanation:** use the open-source
+  [agent framework](https://pydantic.dev/docs/ai/core-concepts/agent/)
+  to coordinate evidence retrieval and analysis tools.
+  An LLM would interpret questions and explain results; the agent runtime would
+  manage typed tool interactions and structured responses. Which observations
+  support a forecast, what assumptions matter, and what context is missing?
 
-These are proposed research directions, not an adopted stack or a claim of
-validated predictive or causal capabilities. Numerical results would come from
+The agent design keeps the language model and provider interchangeable. Options
+include OpenAI or Anthropic APIs, and open-weight models served locally or through
+a hosted endpoint. Candidates would be evaluated against the same tools and
+questions. Selection depends on tool-calling reliability, evidence quality,
+privacy, latency and cost. Credentials are configured privately where required;
+the open-source agent framework is independent of that deployment choice.
+
+The agent direction emphasizes traceable answers and evaluation of both tool use
+and evidence attribution. Structured responses help make answers inspectable;
+their factual support still needs checking.
+
+These research directions do not imply validated predictive or causal
+capabilities. Numerical results would come from
 analysis tools and models; generated explanations would remain tied to their
 supporting evidence. Added complexity must earn its place against transparent
 baselines.
