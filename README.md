@@ -12,13 +12,19 @@ training records and race results can help an athlete understand performance,
 identify meaningful opportunities, and make better-informed training and pacing
 choices.
 
-Triathlon provides a demanding setting: three disciplines, interacting fatigue,
+The scope includes standalone running races and triathlon. A central prediction
+question is: **what finish time is plausible, what is the probability of meeting
+a target, and which evidence supports the forecast?**
+
+Triathlon adds a demanding setting: three disciplines, interacting fatigue,
 variable courses and conditions, and imperfect measurements. The central question
-is practical: **which changes in preparation are likely to matter on race day,
+for causal investigation is: **which changes in preparation are likely to matter on race day,
 and how strong is the evidence?**
 
 ## Performance questions
 
+- **Race prediction:** estimate finish-time uncertainty for standalone running
+  events, with triathlon run splits and off-road courses requiring distinct context.
 - **Adaptation over time:** distinguish useful changes in performance and
   physiological response from day-to-day variation.
 - **Preparation and execution:** connect training patterns to what happens during
@@ -27,6 +33,21 @@ and how strong is the evidence?**
   specific race, while respecting differences in distance, course and conditions.
 - **Decisions under uncertainty:** explore alternative training and pacing choices
   with explicit assumptions about what the available evidence can support.
+
+## Research roadmap
+
+The intended progression is:
+
+1. Establish comparable running-race evidence with clear provenance.
+2. Develop probabilistic finish-time forecasts with explicit uncertainty.
+3. Make forecasts and their supporting evidence accessible through an agent.
+4. Assess predictions against later race outcomes and transparent baselines.
+5. Explore training context and distinct demands of triathlon and off-road races.
+6. Investigate which preparation changes warrant causal testing.
+
+Evaluation accompanies development throughout. Later extensions depend on the
+strength of the evidence; this sequence describes research direction, not a claim
+that these capabilities are complete or validated.
 
 ## Technical perspective
 
