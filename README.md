@@ -42,16 +42,16 @@ readiness; a slower run after a hard ride does not establish its cause.
 
 The technical direction connects three complementary roles:
 
-- **PyMC — performance change and prediction:** estimate race finish-time
+- **[PyMC](https://www.pymc.io/projects/docs/en/stable/) — performance change and prediction:** estimate race finish-time
   distributions and the probability of meeting a target, with uncertainty and
   assumptions made explicit. How much confidence should an athlete place in a
   forecast given the available training and race evidence?
-- **DoWhy — intervention questions:** investigate whether a specific change in
+- **[DoWhy](https://www.pywhy.org/dowhy/main/) — intervention questions:** investigate whether a specific change in
   preparation or pacing could improve an outcome, where the evidence and causal
   assumptions support estimation. Would a more conservative early bike effort
   improve total bike-plus-run time?
-- **PydanticAI — evidence investigation and explanation:** use the open-source
-  [agent framework](https://pydantic.dev/docs/ai/core-concepts/agent/)
+- **[PydanticAI](https://pydantic.dev/docs/ai/core-concepts/agent/) — evidence investigation and explanation:** use the open-source
+  agent framework
   to coordinate evidence retrieval and analysis tools.
   An LLM would interpret questions and explain results; the agent runtime would
   manage typed tool interactions and structured responses. Which observations
