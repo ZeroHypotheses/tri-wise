@@ -40,10 +40,15 @@ The intended progression is:
 
 1. Establish comparable running-race evidence with clear provenance.
 2. Develop probabilistic finish-time forecasts with explicit uncertainty.
-3. Make forecasts and their supporting evidence accessible through an agent.
+3. Connect a CLI evidence agent to saved forecasts and evaluate its answers with Harbor.
 4. Assess predictions against later race outcomes and transparent baselines.
 5. Explore training context and distinct demands of triathlon and off-road races.
 6. Investigate which preparation changes warrant causal testing.
+
+The planned first integrated agent milestone is one working question, one
+Harbor evaluation task and one verifier, connecting a saved prediction to a
+checkable answer. Broader evaluations would guide improvements to prompts,
+tool descriptions and model choices before considering model-weight tuning.
 
 Evaluation accompanies development throughout. Later extensions depend on the
 strength of the evidence; this sequence describes research direction, not a claim
@@ -61,7 +66,7 @@ separation between observed associations, predictive performance and causal
 claims. A faster training session does not automatically imply improved race
 readiness; a slower run after a hard ride does not establish its cause.
 
-The technical direction connects three complementary roles:
+The technical direction connects modeling, explanation and evaluation:
 
 - **[PyMC](https://www.pymc.io/projects/docs/en/stable/) — performance change and prediction:** estimate race finish-time
   distributions and the probability of meeting a target, with uncertainty and
@@ -77,6 +82,12 @@ The technical direction connects three complementary roles:
   An LLM would interpret questions and explain results; the agent runtime would
   manage typed tool interactions and structured responses. Which observations
   support a forecast, what assumptions matter, and what context is missing?
+
+- **[Harbor](https://docs.harborframework.com/tasks/overview) — agent evaluation:** evaluate
+  the planned CLI agent against repeatable tasks and saved forecast fixtures.
+  Check numerical accuracy, source grounding and whether explanations preserve
+  uncertainty and acknowledge unavailable evidence. PydanticAI would run the
+  agent; Harbor would evaluate its behavior.
 
 The agent design keeps the language model and provider interchangeable. Options
 include OpenAI or Anthropic APIs, and open-weight models served locally or through
