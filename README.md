@@ -21,6 +21,19 @@ variable courses and conditions, and imperfect measurements. The central questio
 for causal investigation is: **which changes in preparation are likely to matter on race day,
 and how strong is the evidence?**
 
+## Explore the demo
+
+[![Bayesian race prediction model](assets/synthetic-model-dark.svg)](https://tri-wise-model-explorer.woollyknoll64.chatgpt.site)
+
+[Open the interactive demo](https://tri-wise-model-explorer.woollyknoll64.chatgpt.site)
+to explore how training evidence becomes a race prediction with uncertainty.
+The agent examples compare finish-time targets and explore how changes in
+preparation could affect an outcome.
+
+The demo uses synthetic data and simulated agent interactions; the counterfactual
+scenario illustrates a planned workflow, not an estimated causal effect. Click
+the diagram to interact with it.
+
 ## Performance questions
 
 - **Race prediction:** estimate finish-time uncertainty for standalone running
@@ -116,5 +129,6 @@ and an observation that can be checked again.
 ---
 
 **The underlying methodology and implementation are intentionally kept private.**
-This repository presents the project's research questions and direction. It does
-not publish athlete data, internal methods, or implementation-status claims.
+This repository presents the project's research questions, direction and an
+independent synthetic illustration. It does not publish athlete data or the
+private model's implementation.
