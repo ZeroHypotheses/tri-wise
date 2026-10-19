@@ -1,0 +1,74 @@
+{
+  "synthetic": true,
+  "description": "Illustrative Bayesian model, not the production model.",
+  "nodes": {
+    "baseline_pace": {
+      "title": "Baseline pace",
+      "text": "An uncertain underlying pace in seconds per kilometre. The prior is centred at 4:12/km. The trials update this distribution."
+    },
+    "fictional_trials": {
+      "title": "Pace observations",
+      "text": "Six pace measurements: 253, 245, 260, 249, 247 and 254 s/km. Their observation noise is fixed at 15 s/km for this model."
+    },
+    "race_day_effect": {
+      "title": "Race-day variation",
+      "text": "A zero-centred offset with standard deviation 12 s/km. It represents a hypothetical better or worse race day. It is not learned from these trials."
+    },
+    "predicted_pace": {
+      "title": "Predicted race pace",
+      "text": "Baseline pace plus the race-day offset. Each posterior draw produces another plausible pace, preserving uncertainty rather than using a single best estimate."
+    },
+    "finish_time": {
+      "title": "10 km finish time",
+      "text": "Multiply predicted pace (s/km) by the fixed distance of 10 km. This is a unit conversion; there is no distance-scaling or training-transfer model here."
+    }
+  },
+  "edges": [
+    [
+      "baseline_pace",
+      "fictional_trials"
+    ],
+    [
+      "baseline_pace",
+      "predicted_pace"
+    ],
+    [
+      "race_day_effect",
+      "predicted_pace"
+    ],
+    [
+      "predicted_pace",
+      "finish_time"
+    ]
+  ],
+  "pace_quantiles_seconds_per_km": [
+    224.76450095753313,
+    251.57720695488,
+    276.9494079388492
+  ],
+  "divergences": 0,
+  "target_comparison": [
+    {
+      "target_seconds": 2460,
+      "probability_under_target": 0.3425
+    },
+    {
+      "target_seconds": 2520,
+      "probability_under_target": 0.51125
+    },
+    {
+      "target_seconds": 2580,
+      "probability_under_target": 0.6925
+    }
+  ],
+  "example_answer": {
+    "target_seconds": 2520,
+    "probability_under_target": 0.51125,
+    "finish_quantiles_seconds": [
+      2247.645009575331,
+      2515.7720695488,
+      2769.494079388492
+    ],
+    "draw_count": 4000
+  }
+}
