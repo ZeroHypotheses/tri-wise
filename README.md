@@ -49,23 +49,22 @@ the diagram to interact with it.
 
 ## Research roadmap
 
-The intended progression is:
+The research sequence is:
 
-1. Establish comparable running-race evidence with clear provenance.
-2. Develop probabilistic finish-time forecasts with explicit uncertainty.
-3. Connect a CLI evidence agent to saved forecasts and evaluate its answers with Harbor.
-4. Assess predictions against later race outcomes and transparent baselines.
-5. Explore training context and distinct demands of triathlon and off-road races.
-6. Investigate which preparation changes warrant causal testing.
+1. **In place:** establish comparable running-race evidence with clear provenance.
+2. **First cut in place:** develop probabilistic finish-time forecasts with
+   explicit uncertainty from prior race and training evidence.
+3. **First cut in place:** connect an evidence agent to model-backed analysis and
+   evaluate its answers on repeatable tasks.
+4. **In progress:** assess predictions against later race outcomes and
+   transparent baselines.
+5. **Later:** explore training context and distinct demands of triathlon and
+   off-road races.
+6. **Later:** investigate which preparation changes warrant causal testing.
 
-The planned first integrated agent milestone is one working question, one
-Harbor evaluation task and one verifier, connecting a saved prediction to a
-checkable answer. Broader evaluations would guide improvements to prompts,
-tool descriptions and model choices before considering model-weight tuning.
-
-Evaluation accompanies development throughout. Later extensions depend on the
-strength of the evidence; this sequence describes research direction, not a claim
-that these capabilities are complete or validated.
+The current forecast and agent are early implementations, not validated
+products. Evaluation accompanies development throughout; later extensions depend
+on the strength of the evidence.
 
 ## Technical perspective
 
@@ -79,39 +78,13 @@ separation between observed associations, predictive performance and causal
 claims. A faster training session does not automatically imply improved race
 readiness; a slower run after a hard ride does not establish its cause.
 
-The technical direction connects modeling, explanation and evaluation:
-
-- **[PyMC](https://www.pymc.io/projects/docs/en/stable/) — performance change and prediction:** estimate race finish-time
-  distributions and the probability of meeting a target, with uncertainty and
-  assumptions made explicit. How much confidence should an athlete place in a
-  forecast given the available training and race evidence?
-- **[DoWhy](https://www.pywhy.org/dowhy/main/) — intervention questions:** investigate whether a specific change in
-  preparation or pacing could improve an outcome, where the evidence and causal
-  assumptions support estimation. Would a more conservative early bike effort
-  improve total bike-plus-run time?
-- **[PydanticAI](https://pydantic.dev/docs/ai/core-concepts/agent/) — evidence investigation and explanation:** use the open-source
-  agent framework
-  to coordinate evidence retrieval and analysis tools.
-  An LLM would interpret questions and explain results; the agent runtime would
-  manage typed tool interactions and structured responses. Which observations
-  support a forecast, what assumptions matter, and what context is missing?
-
-- **[Harbor](https://docs.harborframework.com/tasks/overview) — agent evaluation:** evaluate
-  the planned CLI agent against repeatable tasks and saved forecast fixtures.
-  Check numerical accuracy, source grounding and whether explanations preserve
-  uncertainty and acknowledge unavailable evidence. PydanticAI would run the
-  agent; Harbor would evaluate its behavior.
-
-The agent design keeps the language model and provider interchangeable. Options
-include OpenAI or Anthropic APIs, and open-weight models served locally or through
-a hosted endpoint. Candidates would be evaluated against the same tools and
-questions. Selection depends on tool-calling reliability, evidence quality,
-privacy, latency and cost. Credentials are configured privately where required;
-the open-source agent framework is independent of that deployment choice.
-
-The agent direction emphasizes traceable answers and evaluation of both tool use
-and evidence attribution. Structured responses help make answers inspectable;
-their factual support still needs checking.
+The technical direction connects probabilistic performance forecasts, evidence
+retrieval and clear explanations. An agent can retrieve supporting observations,
+ask analysis tools for target comparisons, and explore counterfactual questions
+when assumptions and evidence support them. Repeatable evaluations check
+numerical accuracy, source grounding and whether explanations preserve
+uncertainty. The implementation keeps model providers interchangeable and
+evaluates them against the same questions.
 
 These research directions do not imply validated predictive or causal
 capabilities. Numerical results would come from
